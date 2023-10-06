@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="02_10.css">
+    <title>Autocomplete</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Form with auto complete</legend>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" autocomplete="email">
+
+            <label for="phone">Phone:</label>
+            <input type="tel" name="phone" id="phone" autocomplete="tel">
+
+            <br>
+            <input type="submit">
+        </fieldset>
+
+    </form>
+
+    <form action="#" method="post"  autocomplete="off">
+        <fieldset>
+            <legend>Form without auto complete</legend>
+             
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+
+            <label for="phone">Phone:</label>
+            <input type="tel" name="phone" id="phone">
+
+            <br>
+            <input type="submit">
+        </fieldset>
+    </form>
+
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Form with auto complete on individual fields</legend>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" autocomplete="email">
+
+        <label for="phone">Phone:</label>
+        <input type="tel" name="phone" id="phone" autocomplete="off">
+
+        <br>
+        <input type="submit">
+      </fieldset>
+    </form>
+</body>
+</html>
