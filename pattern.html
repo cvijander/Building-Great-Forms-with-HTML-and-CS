@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="02_08.css">
+    <title>Pattern attribute</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Using the Pattern attribute</legend>
+            <label for="userName">User Name</label>
+            <input type="text" name="userName" id="userName" pattern="[A-Za-z\d\.]{4,10}" required>
+
+            <label for="p1">Pattern 1</label>
+            <input type="text" name="p1" id="p1" pattern="[a-z]{1,10}">
+            <span class="info">only use lowercase letters and length should not exceed 10 characters</span>
+
+            <label for="p2">Pattern 2</label>
+            <input type="text" name="p2" id="p2" pattern="[A-Za-z0-9]{3,10}">
+            <span class="info">only use letters and numbers and length should be a minimum of 3 characters and not exceed 10 characters</span>
+
+            <label for="p3">Pattern 3, zip code</label>
+            <input type="text" name="p3" id="p3" pattern="(\d{5}([\-]\d{4})?)">
+            <span class="info">Enter a US based zip code, format can be ##### or #####-####</span>
+
+            <label for="p4">Pattern 4: US based phone</label>
+            <input type="text" name="p4" id="p4" pattern="\d{3}[\-]\d{3}[\-]\d{4}">
+            <span class="info">Enter your US based phone number in this pattern: 123-456-7890</span>
+
+            <br>
+            <input type="submit">
+        </fieldset>
+
+        <fieldset>
+            <legend>Pattern with improved validation method</legend>
+
+            <label for="p5">Pattern 5</label>
+            <input type="text" name="p5" id="p5" pattern="[a-z]{1,10}" title="Entry should only contain lowercase letters and not exceed 10 characters. 
+            e.g. octopus">
+        </fieldset>
+
+        <fieldset>
+            <legend>Alternate pattern validation method using JS</legend>
+
+            <label for="p6">Pattern 6</label>
+            <input type="text" name="p6" id="p6" pattern="[a-z]{1,10}">
+
+        </fieldset>
+
+        <div class="outside">
+            <br><input type="submit">
+        </div>
+    </form>
+
+    <script>
+        var input= document.getElementById('p6');
+
+        input.oninvalid =function(event) {
+            event.target.setCustomValidity('Your entry should only contain lowercase letters and not exceed 10 characters. e.g. octopus');
+        }
+    </script>
+</body>
+</html>
