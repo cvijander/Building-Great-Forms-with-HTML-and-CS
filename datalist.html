@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="02_03_main.css">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <form action="" method="post" id="contact">
+            <fieldset>
+                <legend>Select</legend>
+
+                <label for="mealChoice">Meal Choice:</label>
+                <select name="meal_choice" id="mealChoice">
+                    <option value="no_preferences">No preference</option>
+                    <option value="vegeterians">Vegeterians</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="pescetarians">Pescatarians</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datalist</legend>
+                <label for="mealChoice2">Meal Choice:</label>
+
+                <input type="text" name="meal_choice2" id="mealChoice2" list="type_of_meal">
+                <datalist id="type_of_meal">
+                    <option value="no_preferences">No preference</option>
+                    <option value="vegeterians">Vegeterians</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="pescetarians">Pescatarians</option>
+                </datalist>
+            </fieldset>
+
+            <input type="submit" id="submit" value="Send your meal choice">
+        </form>
+
+        <form id="output" oninput="result.value=parseInt(x.value)+parseInt(y.value)">
+            <fieldset>
+                <legend>Output</legend>
+
+                <input type="range" id="x" value="0">
+                +<input type="number" id="y" value="10">
+                =<output name="result" for="x y"></output>
+            </fieldset>
+
+        </form>
+
+
+    </section>
+</body>
+</html>
