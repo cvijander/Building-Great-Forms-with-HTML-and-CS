@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="03_03.css">
+    <title>Styling your form | Focus</title>
+</head>
+<body>
+    <section>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Contact us</legend>
+
+                <p>Please reach out to us if you have any questions about our life changing outdoor experience.</p>
+
+                <label for="fullName">Your name:</label>
+                <input type="text" id="fullName" name="fullName">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+
+                <label for="phone">Phone:</label>
+                <input type="tel" name="phone" id="phone">
+
+                <label for="msg">Your Message:</label>
+                <textarea name="msg" id="msg"></textarea>
+
+                <div class="checks">
+                    <input type="checkbox" name="copyEmail" id="copyEmail">
+                    <label for="copyEmail">Send copy to my-email</label>
+                
+                </div>
+                
+                <div class="checks">
+                    <p>Preferred method of contact:</p>
+                
+                    <input type="radio" name="contact" id="contactEmail" value="email">
+                    <label for="contactEmail">Email</label>
+                
+                    <input type="radio" name="contact" id="contactPhoneCall" value="PhoneCall">
+                    <label for="contactPhoneCall">Phone Call</label>
+                
+                    <input type="radio" name="contact" id="contactTextMessage" value="TextMessage">
+                    <label for="contactTextMessage">Text message</label>
+                </div>
+                
+                <input type="submit" id="submit" value="Contact us">
+                
+
+            </fieldset>
+        </form>
+    </section>
+</body>
+</html>
