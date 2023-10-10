@@ -42,14 +42,41 @@
                     <label for="email"><i class="fas fa-envelope"></i> Email</label>
                     <input type="email" id="email" name="email" required>
 
-                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                    <label for="password"><i class="fas fa-lock"></i> Password
+                    <!-- password streingth-->
+                     <progress max="100" value="0" id="strength" aria-label="password strength progress bar">
+                     </progress>                    
+                    </label>
+
                     <div id="pwdWrap">
+                        <!-- entering a tooltip-->
+                         <!-- help tip for password input field -->
+                         <i class="fas fa-question-circle tooltip">
+                            <!-- the span tag holds our help-tip message -->
+                            <span class="helperText" id="tt">Make sure your password contains at least 10 characters, 1 upper and 
+                                1 lower case letter, 1 number and 1 symbol 
+                                <i class="fas fa-caret-down"></i>
+                                <i class="fas fa-times-circle close"></i>
+                            </span>
+                         </i>
+
                         <input type="password" id="password" name="password" required>
                         <i class="fas fa-eye eyeIcon"></i>
                     </div>
 
                     <label for="city"><i class="fas fa-map-marker-alt"></i> City <span>(Optional)</span></label>
                     <div id="cityWrap">
+                        <!-- entering a tooltip -->
+                        <!-- help-tip for city input field -->
+                        <i class="fas fa-question-circle tooltip city">
+                            <span class="helperText" id="cty">Why do we collect this information? To personalize 
+                                our offerings based on your location.You can always change or edit this under your account
+                                settings.
+                                <i class="fas fa-caret-down"></i>
+                                <i class="fas fa-times-circle close"></i>
+                            </span>
+                        </i>
+
                         <input type="text" id="city" name="city">
                     </div>
 
@@ -86,6 +113,79 @@
             }
             password = !password; // when password is false the text is showing
         });
+
+         // help tip tooltip 
+         // password help-tip
+         // hide the password helper text div
+         document.querySelector('#tt').classList.add('hide');
+         // make the tooltip able to close on click
+         const tooltip =document.querySelector('.tooltip');
+         tooltip.addEventListener('click',function(){
+            document.querySelector('#tt').classList.toggle('show'); 
+            // togle the tooltip to show or hide
+            document.querySelector('#tt').classList.toggle('hide');
+         })
+
+         // city help-tip
+         // hide the helper text div 
+         document.querySelector('#cty').classList.add('hide');
+         // hide the tooltip on the page load
+         const cityToolTip = document.querySelector('.tooltip.city');
+         cityToolTip.addEventListener('click',function(){
+            document.querySelector('#cty').classList.toggle('show');
+            // togle the tooltip to show or hide 
+            document.querySelector('#cty').classList.toggle('hide');
+         })
+
+
+         // password strength
+            var pass = document.getElementById('password');
+            pass.addEventListener('keyup', function () {
+                checkPassword(pass.value);
+            })
+            function checkPassword(password) {
+                var strengthBar = document.getElementById('strength');
+                var strength = 0; // set default strength to 0
+                if (password.match(/(?=.*\d)+/)) { // checks to see if password matches regular expression and increases strength by 1. Here we check for a number from 0-9
+                    strength += 1
+                }
+                if (password.match(/(?=.*[a-z])(?=.*[A-Z])+/)) { //We are seeing if password as a lower case from a-z, upper case from A-Z
+                    strength += 1
+                }
+                if (password.match(/(?=.*[!@#$%^&*()~<>?])+/)) { // check for funky character
+                    strength += 1
+                }
+                if (password.length > 10) { // check for at least 10 characters  
+                    strength += 1
+                }
+                switch (strength) { // run switch statement on strength
+                    case 0:
+                        strengthBar.value = 20;
+                        strengthBar.className = '';
+                        strengthBar.classList.add('pb20');
+                        break;
+                    case 1:
+                        strengthBar.value = 40;
+                        strengthBar.className = '';
+                        strengthBar.classList.add('pb40');
+                        break;
+                    case 2:
+                        strengthBar.value = 60;
+                        strengthBar.className = '';
+                        strengthBar.classList.add('pb60');
+                        break;
+                    case 3:
+                        strengthBar.value = 80;
+                        strengthBar.className = '';
+                        strengthBar.classList.add('pb80');
+                        break;
+                    case 4:
+                        strengthBar.value = 100;
+                        strengthBar.className = '';
+                        strengthBar.classList.add('pb100');
+                        break;
+                }
+            }
 
     </script>
 </body>
