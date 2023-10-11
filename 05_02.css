@@ -2,7 +2,7 @@
     position: relative;
 }
 
-#flightBook.form-label {
+#flightBook .form-label {
     position: absolute;
     top: 6px;
     left: 20px;
